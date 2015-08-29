@@ -227,5 +227,7 @@ else
 fi
 
 mkdir -p $build/.profile.d
-echo 'PATH=$PATH:$HOME/latestgo/go/bin:$HOME/bin' > $build/.profile.d/go.sh
+echo 'PATH=$PATH:$HOME/.latestgo/go/bin:$HOME/bin
+GOROOT=$HOME/.latestgo/go
+GOPATH=$HOME/.heroku/go' > $build/.profile.d/go.sh
 cp $buildpack/vendor/concurrency.sh $build/.profile.d/
