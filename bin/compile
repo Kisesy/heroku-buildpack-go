@@ -228,6 +228,7 @@ else
     go get "${FLAGS[@]}" $pkgs
 fi
 
+rm -rf $GOPATH/go/src #fresh src dir 
 mkdir -p $build/.profile.d
 echo 'echo set Go environment
 export PATH=$PATH:$HOME/.latestgo/go/bin:$HOME/bin
