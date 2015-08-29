@@ -72,6 +72,8 @@ finished() {
     echo "done"
 }
 
+step "Custom jpillora Go buildpack"
+
 if test -f $build/Godeps
 then
     warn "Deprecated, old ./Godeps file found!"
@@ -227,7 +229,8 @@ else
 fi
 
 mkdir -p $build/.profile.d
-echo 'PATH=$PATH:$HOME/.latestgo/go/bin:$HOME/bin
-GOROOT=$HOME/.latestgo/go
-GOPATH=$HOME/.heroku/go' > $build/.profile.d/go.sh
+echo 'echo set Go environment
+export PATH=$PATH:$HOME/.latestgo/go/bin:$HOME/bin
+export GOROOT=$HOME/.latestgo/go
+export GOPATH=$HOME/.heroku/go' > $build/.profile.d/go.sh
 cp $buildpack/vendor/concurrency.sh $build/.profile.d/
